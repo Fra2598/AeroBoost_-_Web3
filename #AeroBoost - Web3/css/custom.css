@@ -1,0 +1,497 @@
+
+/* ---- ---- ---- ---- ---- ---- ---- LANDINGPAGE */
+.bg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, #292929 0%, #000000 25%, #474747 51%, #000000 100%);
+    -webkit-animation: AnimateBG 10s ease infinite;
+            animation: AnimateBG 10s ease infinite;
+  }
+  
+  @-webkit-keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .ab_infoTopNav{
+    width: 100%;
+    background: #333;
+    text-align: right;
+    color: #FFF;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+  .ab_MainText {
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Bebas Neue', cursive;
+    color: #FFF;
+    font-size: 51px;
+    text-align: center;
+}
+ 
+.ab_MainScroll {
+  margin: 0 auto;
+  width: 80%;
+  font-family: 'Bebas Neue', cursive;
+  color: #FFF;
+  font-size: 30px;
+  text-align: center;
+}
+
+.ab_MainScrollAnim {
+  animation-name: MainScrollAnim;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes MainScrollAnim {
+  from {color: #FFF;}
+  to {color: red;}
+}
+
+.ab_CardContainer {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.ab_LeftProdContainer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.ab_BrandBox {
+  margin: 0 auto;
+  width: 51%;
+  padding: 15px 15px;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+}
+
+.ab_ProdButton {
+  margin: 0 auto;
+  width: 51%;
+  padding: 15px 15px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.ab_MainCoomingSoon {
+  width: 100%;
+  padding-top: 51px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.ab_QuestSoon {
+  margin: 0 auto;
+  width: auto;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  text-align: center;
+  padding-top: 51px;
+}
+
+.ab_Switch {
+  margin: 0 auto;
+  width: auto;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  text-align: center;
+  padding-top: 51px;
+}
+
+.ab_Switch {
+  margin: 0 auto;
+  width: auto;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  text-align: center;
+  padding-top: 51px;
+  padding-bottom: 51px;
+}
+
+.ab_SwitchInput {
+    border: 2px solid #333333;
+    border-radius: 3px 3px;
+    margin-bottom: 10px;
+    height: 50px;
+    text-align: center;
+    background: #eee;
+    color: #333;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ab_MainFooter {
+  margin: 0 auto;
+  background-color: #333;
+  width: 100%;
+  padding-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  color: #FFF;
+  padding-bottom: 51px;
+}
+
+.ab_FinalFooter {
+  margin: 0 auto;
+  background-color: #333;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: #FFF;
+  text-align: center;
+  border-top: 2px solid red;
+}
+
+.ab_ContattiText {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  color: #FFF;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.ab_ContattiBorderRight {
+  border-left: 2px solid red;
+}
+
+.ab_ContattiBorderLeft {
+  border-right: 2px solid red;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- Dynamic */
+@media screen and (min-width: 0px) and (max-width: 1090px) {
+
+.ab_infoTopNav{
+    font-size: 15px;
+}
+
+.ab_MainText {
+  font-size: 35px;
+}
+  
+.ab_MainScroll { 
+  font-size: 20px;
+}
+
+.ab_ContattiText {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.ab_ContattiBorderRight {
+  border-left: 0px solid red;
+}
+
+.ab_ContattiBorderLeft {
+  border-right: 0px solid red;
+}
+
+}
+/* ---- ---- ---- ---- ---- ---- ---- Dynamic */
+
+
+/* ---- ---- ---- ---- ---- ---- ---- LANDINGPAGE */
+
+/* ---- ---- ---- ---- ---- ---- ---- PAGINA PRODOTTI */
+
+.pp_MainNav{
+  width: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.151);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.pp_MainNavPadding{
+  padding-bottom: 15px;
+}
+
+.pp_MainButton_cart {
+  margin: 0 auto;
+  width: 50%;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.pp_MainButton_home {
+  margin: 0 auto;
+  width: 50%;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+.pp_aerocool{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 51px;
+  text-align: center;
+}
+
+.pp_Container{
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+}
+
+.pp_ProdName {
+  margin: 0 auto;
+  font-size: 80px;
+  font-family: 'Bebas Neue', cursive;
+  color: #fff;
+}
+.pp_ProdVersion {
+  margin: 0 auto;
+  font-size: 51px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+.pp_ProdPrice {
+  margin: 0 auto;
+  font-size: 51px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  padding-bottom: 30px;
+}
+
+.pp_ProdButton_buy {
+  margin: 0 auto;
+  width: 50%;
+  padding: 15px 15px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.pp_ProdButton_info {
+  margin: 0 auto;
+  width: 50%;
+  padding: 15px 15px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+.pp_ImgPrev {
+  border: 2px solid #333;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px #ffffff1e;
+}
+
+.pp_Divider {
+  padding-top: 80px; 
+  width: 30%; 
+  border-bottom: 4px solid red; 
+  border-top: 0px solid red; 
+  border-left: 0px solid red;
+  border-right: 0px solid red;
+  border-style: dotted; 
+  margin: 0 auto;
+}
+
+.pp_MainSoon {
+  max-width: 551px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  background-color: #333;
+  border-top: 4px solid red;
+  border-bottom: 4px solid red;
+  padding-top: 51px;
+  padding-bottom: 51px;
+}
+
+.pp_MainSoonTitle {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  color: red;
+  font-family: 'Roboto', sans-serif;
+  font-size: 51px;
+  padding-bottom: 30px;
+}
+
+.pp_SoonList {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+}
+
+.pp_CartTitle {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 51px;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  color: #fff;
+}
+
+.pp_contatti_input{
+  width: 100% !important;
+  border: 2px solid #000;
+  border-radius: 5px 5px;
+  height: 50px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background: #eee;
+  color: #333;
+  font-size: 18px;
+}
+
+.pp_PayText{
+  width: 100% !important;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 30px;
+}
+
+.pp_ModalTitle {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 51px;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  color: #fff;
+}
+
+.pp_ModalVers {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.pp_ModalDesc {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.pp_ModalSelect {
+  width: 300px; 
+  height: 40px; 
+  font-size: 20px; 
+  font-family: 'Roboto', sans-serif;  
+  text-align-last:center;
+}
+
+.pp_ProdButton_cartbuy {
+  margin: 0 auto;
+  padding: 15px 15px;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border: 2px solid red;
+  background-color: red;
+  border-radius: 5px;
+}
+
+/* ---- ---- ---- ---- ---- ---- ---- Dynamic */
+@media screen and (min-width: 0px) and (max-width: 800px) {
+
+  .pp_MainNav{
+    padding-bottom: 40px;
+  }
+  
+  .pp_ProdName {
+    font-size: 51px;
+  }
+  .pp_ProdVersion {
+    font-size: 30px;
+  }
+  .pp_ProdPrice {
+    font-size: 51px;
+  }
+  .pp_ProdButton_buy {
+    font-size: 15px;
+  }
+  .pp_ProdButton_info {
+    font-size: 15px;
+  }
+
+  .pp_MainSoonTitle {
+    font-size: 30px;
+  }
+  
+  .pp_SoonList {
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+  }
+
+  .pp_ModalTitle {
+    font-size: 35px;
+  }
+
+  .pp_ModalVers {
+    font-size: 25px;
+  }
+}
+  /* ---- ---- ---- ---- ---- ---- ---- Dynamic */

@@ -1,0 +1,1005 @@
+<!-- ################# Framework3 ################# -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AeroBoost &bull; Accessori Fiesta Mk7</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.0.2/base64.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+		<!-- Loading Custom CSS-->
+		<link rel="stylesheet" type="text/css" href="css/custom.css">
+        <link rel="stylesheet" type="text/css" href="css/scrollbar.css">
+		<!-- Loading UiKit 3.15.10 -->
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+        <!-- Loading Google Font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    </head>
+<body style="background-color: #333;">
+    <script src="https://www.paypal.com/sdk/js?client-id=AdSfobcmVX6DVRQMdHnqR4BaL8Sso0dcjmvYFySATOKr4WBVLn9aFpto6Bx0t8rkGhu8l9QS1BohoSFj&currency=EUR"></script>
+
+<!-- ########################################################################################################################### -->
+    
+<!-- Carrello -->
+<div id="modal-carrello" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="background: #333; color: #fff;">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="pp_CartTitle">Carrello <span uk-icon="icon: cart; ratio: 3" style="color: red;"></span></div>
+
+        <div id="carrello-items"></div>
+        
+        <div id="importo-sconto-container"></div>
+
+        <div id="totale-parz-container"></div>
+
+        <div id="spese-sped-container"></div>
+
+        <div id="totale-container"></div>
+
+        <br>
+
+        <div>
+            <input class="pp_contatti_input" type="text" id="sconto-code" placeholder="Codice sconto"></input>
+            <div id="active-code"></div>
+        </div>
+        <br>
+		<div class="pp_PayText" style="font-size: 18px;">
+       		Don't you live in <span style="color: green;">It</span>a<span style="color: red;">ly</span>? Contact us before placing your order
+		</div>
+        <br>
+        <form id="selectForm" name="aeroboost">
+            
+			<div class="uk-grid-collapse" style="padding-bottom: 10px;" uk-grid>
+				<div class="uk-width-1-2" style="padding-right: 15px;">
+					<input class="pp_contatti_input" type="text" name="nome" placeholder="Nome"></input>
+				</div>
+				<div class="uk-width-1-2">
+					<input class="pp_contatti_input" type="text" name="cognome" placeholder="Cognome"></input>
+				</div>
+			</div>
+
+			<div style="padding-bottom: 10px;">
+			<input class="pp_contatti_input" type="text" name="fiscale" placeholder="Codice Fiscale / P.IVA"></input>
+			</div>
+
+			<div class="uk-grid-collapse" style="padding-bottom: 10px;" uk-grid>
+				<div class="uk-width-1-2" style="padding-right: 15px;">
+					<input class="pp_contatti_input" type="number" name="phone" placeholder="Numero Cellulare"></input>
+				</div>
+				<div class="uk-width-1-2">
+					<input class="pp_contatti_input" type="text" name="email" placeholder="Indirizzo e-Mail.."></input>
+				</div>
+			</div>
+
+			<div class="uk-grid-collapse" style="padding-bottom: 10px;" uk-grid>
+				<div class="uk-width-1-2" style="padding-right: 15px;">
+					<input class="pp_contatti_input" type="text" name="address" placeholder="Via e n° civico"></input>
+				</div>
+				<div class="uk-width-1-2">
+					<input class="pp_contatti_input" type="number" name="cap" placeholder="CAP"></input>
+				</div>
+			</div>
+
+			<div class="uk-grid-collapse" style="padding-bottom: 10px;" uk-grid>
+				<div class="uk-width-1-2" style="padding-right: 15px;">
+					<input class="pp_contatti_input" type="text" name="city" placeholder="Città"></input>
+				</div>
+				<div class="uk-width-1-2">
+					<input class="pp_contatti_input" type="text" name="maincity" placeholder="Provincia"></input>
+				</div>
+			</div>
+
+			<div style="padding-bottom: 10px;">
+				<input class="pp_contatti_input" type="text" name="plus" placeholder="Informazioni aggiuntive"></input>
+			</div>
+            <br>
+        </form>
+
+        <div id="paypal-inform" class="pp_PayText">
+			<b style="border-bottom: 2px solid red;">Compila tutti i campi!</b><br><br>
+            <img src="images/paypal_web.png">
+        </div>
+
+        <div id="paypal-checkout">
+
+        </div>
+    </div>
+</div>
+<!-- / Carrello -->
+
+<!-- ########################################################################################################################### -->
+
+<!-- MainNav -->
+<div class="pp_MainNav">
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-flex-middle" uk-grid>
+        <div><img src="images/AeroBoost_logo.png"></div>
+        <div class="uk-width-expand pp_MainNavPadding"></div>
+        <div>
+            <a href="" class="pp_MainButton_home"> Homepage <span uk-icon="icon: home; ratio: 1.2"></span></a>
+            <a href="#modal-carrello" id="carrello-a" class="pp_MainButton_cart" uk-toggle> Carrello <span uk-icon="icon: cart; ratio: 1.2"></span></a>
+        </div>
+    </div>
+</div>
+<!-- / MainNav -->
+
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+
+<!-- PRODOTTO - CONVOGLIATORE MK7 ST -->
+<div class="pp_Container">
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-flex-middle" uk-grid>
+        <div>
+                <img src="images/mk7/ConvMk7_3.png" style="padding: 51px 51px 51px 51px">
+        </div>
+
+        <div>
+            <div class="pp_ProdName">
+                <span style="color: red;">C</span>ONVOGLIATORE AIRBOX
+            </div>
+            <div class="pp_ProdVersion">
+               Versione "<span style="color: red;"><b>ST</b></span>"
+            </div>
+            <div class="pp_ProdPrice">
+                <b>€ 119,90</b>
+            </div>
+            
+            <a class="pp_ProdButton_buy"  href="#modal-ConvMk7ST" uk-toggle> ACQUISTA <span uk-icon="icon: cart; ratio: 2"></span></a>
+
+            <a href="" class="pp_ProdButton_info"> INFO PRODOTTO <span uk-icon="icon: chevron-double-right; ratio: 2"></span></a>
+
+            <div style="width: 80%; margin: 0 auto; padding-top: 51px;">
+                <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div><img src="images/mk7/BigMouth_1.png" class="pp_ImgPrev"></div>
+                    <div><img src="images/mk7/BigMouth_2.png" class="pp_ImgPrev"></div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<!-- CONVOGLIATORE MK7 ST [Modal Acquisto] -->
+<div id="modal-ConvMk7ST" class="uk-flex-top" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="background: #333; color: #fff;">
+
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="pp_ModalTitle"><span style="color: red;">C</span>ONVOGLIATORE AIRBOX</div>
+		<div class="pp_ModalVers">Versione "<span style="color: red;">ST</span>"</div>
+		<div class="pp_ModalDesc">
+			<b>Compatibilità:</b> Ford Fiesta <span style="color: red;">ST</span> Mk7b<br><br>
+
+			<span style="font-size: 25px;">Colore Cornice:</span><br><br>
+
+			<select id="select-color-convstmk7" class="pp_ModalSelect">
+				<option value="red">Rosso</option>
+				<option value="black">Nero</option>
+				<option value="white">Bianco</option>
+				<option value="yellow">Giallo</option>
+				<option value="blue">Blu</option>
+				<option value="green">Verde</option>
+				<option value="lblue">Azzurro</option>
+				<option value="grey">Grigio</option>
+				<option value="orange">Arancione</option>
+			</select>
+			<br><br>
+			<i>Possibilità di colorazione personalizzata su richiesta.</i>
+			<br><br>
+			<b>100% Made in <span style="color: green;">It</span>a<span style="color: red;">ly</span></b>
+			<br><br>
+			<button id="add-convstmk7" class="pp_ProdButton_cartbuy shop-btn">Aggiungi al carrello <span uk-icon="icon: cart; ratio: 1.5"></span></button>
+
+		</div>
+	</div>
+</div>
+
+<div class="pp_Divider"></div>
+<!-- / CONVOGLIATORE MK7 ST -->
+
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+
+<!-- RIALZI SPOILER MK7B -->
+<div class="pp_Container">
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-flex-middle" uk-grid>
+        <div>
+            <img src="images/mk7/RialziMk7_promob.png" style="padding: 51px 51px 51px 51px">
+        </div>
+    
+        <div>
+            <div class="pp_ProdName">
+                RIALZI <span style="color: red;">SPOILER</span>
+            </div>
+        
+            <div class="pp_ProdPrice">
+                <b>€ 69,90</b>
+            </div>
+            
+            <a class="pp_ProdButton_buy"  href="#modal-RialziMk7" uk-toggle> ACQUISTA <span uk-icon="icon: cart; ratio: 2"></span></a>
+
+            <a href="" class="pp_ProdButton_info"> INFO PRODOTTO <span uk-icon="icon: chevron-double-right; ratio: 2"></span></a>
+
+            <div style="width: 80%; margin: 0 auto; padding-top: 51px;">
+                <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div><img src="images/mk7/Rialzi_1.png" class="pp_ImgPrev"></div>
+                    <div><img src="images/mk7/Rialzi_3e.jpg" class="pp_ImgPrev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- RIALZI SPOILER MK7B [Modal Acquisto] -->
+<div id="modal-RialziMk7" class="uk-flex-top" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="background: #333; color: #fff;">
+
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="pp_ModalTitle">RIALZI <span style="color: red;">SPOILER</span></div>
+		<div class="pp_ModalDesc">
+			<b>Compatibilità:</b> Tutti i modelli Ford Fiesta <span style="color: red;">Mk7b</span><br><br>
+
+			<span style="font-size: 25px;">Colore Rialzi (Laterali):</span><br><br>
+
+			<select id="select-color-rialzimk7" class="pp_ModalSelect">
+				<option value="red">Rosso</option>
+				<option value="black">Nero</option>
+				<option value="white">Bianco</option>
+				<option value="yellow">Giallo</option>
+				<option value="blue">Blu</option>
+				<option value="green">Verde</option>
+				<option value="lblue">Azzurro</option>
+				<option value="grey">Grigio</option>
+				<option value="orange">Arancione</option>
+			</select>
+			<br><br>
+			<i>Possibilità di colorazione personalizzata su richiesta.</i>
+			<br><br>
+			<b>100% Made in <span style="color: green;">It</span>a<span style="color: red;">ly</span></b>
+			<br><br>
+			<button id="add-rialzimk7" class="pp_ProdButton_cartbuy shop-btn">Aggiungi al carrello <span uk-icon="icon: cart; ratio: 1.5"></span></button>
+
+		</div>
+	</div>
+</div>
+
+<div class="pp_Divider"></div>
+<!-- / RIALZI SPOILER MK7B -->
+
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+
+<!-- COPRIMOZZI ST MKX -->
+<div class="pp_Container">
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-flex-middle" uk-grid>
+        <div>
+            <img src="images/mk7/CoprimozziST_3.png" style="padding: 51px 51px 51px 51px">
+        </div>
+    
+        <div>
+            <div class="pp_ProdName">
+                Coprimozzi <span style="color: red;">ST</span>
+            </div>
+        
+            <div class="pp_ProdPrice">
+                <b>€ 39,90</b>
+            </div>
+            
+            <a class="pp_ProdButton_buy"  href="#modal-coprim" uk-toggle> ACQUISTA <span uk-icon="icon: cart; ratio: 2"></span></a>
+
+            <a href="" class="pp_ProdButton_info"> INFO PRODOTTO <span uk-icon="icon: chevron-double-right; ratio: 2"></span></a>
+
+            <div style="width: 80%; margin: 0 auto; padding-top: 51px;">
+                <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div><img src="images/mk7/CMMkx_2.jpg" class="pp_ImgPrev"></div>
+                    <div><img src="images/mk7/CMMkx_5.jpg" class="pp_ImgPrev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COPRIMOZZI ST MKX [Modal Acquisto] -->
+<div id="modal-coprim" class="uk-flex-top" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="background: #333; color: #fff;">
+
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="pp_ModalTitle">Coprimozzi <span style="color: red;">ST</span></div>
+		<div class="pp_ModalDesc">
+			<b>Compatibilità:</b> Tutti i modelli Ford con mozzo da <span style="color: red;">54mm</span><br><br>
+
+			<span style="font-size: 25px;">Colore Logo (<span style="color: red;">ST</span>):</span><br><br>
+
+			<select id="select-color-coprim" class="pp_ModalSelect">
+				<option value="red">Rosso</option>
+				<option value="black">Nero</option>
+				<option value="white">Bianco</option>
+				<option value="yellow">Giallo</option>
+				<option value="blue">Blu</option>
+				<option value="green">Verde</option>
+				<option value="lblue">Azzurro</option>
+				<option value="grey">Grigio</option>
+				<option value="orange">Arancione</option>
+			</select>
+			<br><br>
+			<i>Possibilità di colorazione personalizzata su richiesta.</i>
+			<br><br>
+			<b>100% Made in <span style="color: green;">It</span>a<span style="color: red;">ly</span></b>
+			<br><br>
+			<button id="add-coprim" class="pp_ProdButton_cartbuy shop-btn">Aggiungi al carrello <span uk-icon="icon: cart; ratio: 1.5"></span></button>
+
+		</div>
+	</div>
+</div>
+
+<div class="pp_Divider"></div>
+<!-- / COPRIMOZZI ST MKX -->
+
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+
+<!-- TAPPO F.A.M. -->
+<div class="pp_Container">
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-flex-middle" uk-grid>
+        <div>
+            <img src="images/mk7/TAPPOFAM_2.png" style="padding: 51px 51px 51px 51px">
+        </div>
+    
+        <div>
+            <div class="pp_ProdName">
+                Tappo <span style="color: red;">F</span>.<span style="color: red;">A</span>.<span style="color: red;">M</span>.
+            </div>
+        
+            <div class="pp_ProdPrice">
+                <b>€ 19,90</b>
+            </div>
+            
+            <a class="pp_ProdButton_buy"  href="#modal-tappofam" uk-toggle> ACQUISTA <span uk-icon="icon: cart; ratio: 2"></span></a>
+
+            <a href="" class="pp_ProdButton_info"> INFO PRODOTTO <span uk-icon="icon: chevron-double-right; ratio: 2"></span></a>
+
+            <div style="width: 80%; margin: 0 auto; padding-top: 51px;">
+                <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div><img src="images/mk7/TappoFAM_1.jpg" class="pp_ImgPrev"></div>
+                    <div><img src="images/mk7/TappoFAM_2.jpg" class="pp_ImgPrev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TAPPO F.A.M. [Modal Acquisto] -->
+<div id="modal-tappofam" class="uk-flex-top" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="background: #333; color: #fff;">
+
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="pp_ModalTitle">Tappo <span style="color: red;">F</span>.<span style="color: red;">A</span>.<span style="color: red;">M</span>.</div>
+		<div class="pp_ModalDesc">
+			<b>Compatibilità:</b> Ford Fiesta <span style="color: red;">ST</span> Mk7b<br><br>
+
+			<span style="font-size: 25px;">Colore Logo (<span style="color: red;">ST</span>):</span><br><br>
+
+			<select id="select-color-tappofam" class="pp_ModalSelect">
+				<option value="red">Rosso</option>
+				<option value="black">Nero</option>
+				<option value="white">Bianco</option>
+				<option value="yellow">Giallo</option>
+				<option value="blue">Blu</option>
+				<option value="green">Verde</option>
+				<option value="lblue">Azzurro</option>
+				<option value="grey">Grigio</option>
+				<option value="orange">Arancione</option>
+			</select>
+			<br><br>
+			<i>Possibilità di colorazione personalizzata su richiesta.</i>
+			<br><br>
+			<b>100% Made in <span style="color: green;">It</span>a<span style="color: red;">ly</span></b>
+			<br><br>
+			<button id="add-tappofam" class="pp_ProdButton_cartbuy shop-btn">Aggiungi al carrello <span uk-icon="icon: cart; ratio: 1.5"></span></button>
+
+		</div>
+	</div>
+</div>
+
+<div class="pp_Divider"></div>
+<!-- / TAPPO F.A.M. -->
+
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+
+<!-- ADATTATORE MANOMETRO MK7 -->
+<div class="pp_Container">
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center uk-flex-middle" uk-grid>
+        <div>
+            <img src="images/mk7/ManometroMk7_1.png" style="padding: 51px 51px 51px 51px">
+        </div>
+    
+        <div>
+            <div class="pp_ProdName">
+                Adattatore <span style="color: red;">M</span>anometro
+            </div>
+        
+            <div class="pp_ProdPrice">
+                <b>€ 14,90</b>
+            </div>
+            
+            <a class="pp_ProdButton_buy"  href="#modal-adattamanom" uk-toggle> ACQUISTA <span uk-icon="icon: cart; ratio: 2"></span></a>
+
+            <a href="" class="pp_ProdButton_info"> INFO PRODOTTO <span uk-icon="icon: chevron-double-right; ratio: 2"></span></a>
+
+            <div style="width: 80%; margin: 0 auto; padding-top: 51px;">
+                <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+                    <div><img src="images/mk7/ManometroMk7v2.jpg" class="pp_ImgPrev"></div>
+                    <div><img src="images/mk7/ManometroMk7v2.jpg" class="pp_ImgPrev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADATTATORE MANOMETRO MK7 [Modal Acquisto] -->
+<div id="modal-adattamanom" class="uk-flex-top" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="background: #333; color: #fff;">
+
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="pp_ModalTitle">Adattatore <span style="color: red;">M</span>anometro</div>
+		<div class="pp_ModalDesc">
+			<b>Compatibilità:</b> Ford Fiesta <span style="color: red;">ST</span> Mk7b<br><br>
+
+			<i>Possibilità di colorazione personalizzata su richiesta.</i>
+			<br><br>
+			<b>100% Made in <span style="color: green;">It</span>a<span style="color: red;">ly</span></b>
+			<br><br>
+			<button id="add-adattamanommk7" class="pp_ProdButton_cartbuy shop-btn">Aggiungi al carrello <span uk-icon="icon: cart; ratio: 1.5"></span></button>
+
+		</div>
+	</div>
+</div>
+
+<!-- / ADATTATORE MANOMETRO MK7 -->
+
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+<!-- ########################################################################################################################### -->
+
+<div style="padding-top: 51px; background: #333; width: 100%;"></div>
+
+<!-- In Arrivo -->
+<div class="pp_MainSoon">
+    <div class="pp_MainSoonTitle">IN FASE DI SVILUPPO</div>
+    <div class="pp_SoonList">
+        - Adattatore Manometro 60mm -<br>
+        - Prese d'aria freni ST -<br>
+        - Canards -<br>
+        - Supporto GoPro -<br>
+    </div>
+</div>
+<!-- In Arrivo -->
+
+<div style="padding-top: 51px; background: #333; width: 100%;"></div>
+
+<!-- Footer -->
+<div class="ab_MainFooter">
+    <div style="font-size: 51px; margin: 0 auto; width: 100%; text-align: center; padding-bottom: 51px;">C'è qualcosa che vorresti chiederci?</div>
+
+    <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+        <div class="ab_ContattiBorderLeft uk-animation-fade">
+            <div class="ab_ContattiText">
+                <span uk-icon="icon: mail; ratio: 3"></span> <a style="color: red;">info@aeroboost.it</a><br><br>
+                <span uk-icon="icon: instagram; ratio: 3"></span> <a style="color: red;" href="https://www.instagram.com/aeroboost.it/">@AeroBoost.it</a><br><br>
+                <span uk-icon="icon: whatsapp; ratio: 3"></span> <a style="color: red;">346 1529217</a><br><br>
+                <span uk-icon="icon: facebook; ratio: 3"></span> <a style="color: red;" href="https://www.facebook.com/AeroBoost/" >@AeroBoost</a>
+            </div>
+        </div>
+
+        <div class="ab_ContattiBorderRight uk-animation-fade">
+            <div class="ab_ContattiText">
+                <span uk-icon="icon: calendar; ratio: 3" style="color: red;"></span> <a style="color: #fff;">Lunedì -Venerdì</a><br><br>
+                <span uk-icon="icon: clock; ratio: 3" style="color: red;"></span> <a style="color: #fff;">08:30 12:30 - 14:30 18:30</a><br><br>
+                <span uk-icon="icon: location; ratio: 3" style="color: red;"></span> <a style="color: #fff;">Via Palestrina, 4 - Viadana (MN)</a><br><br>
+                <span uk-icon="icon: world; ratio: 3" style="color: red;"></span> <a style="color: #fff;">P.IVA: 02586320208</a>
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="ab_FinalFooter">Aero<span style="color:red;">Boost</span> &copy;| 2019-2022 | All right reserved</div>
+<!-- / Footer -->
+
+<!-- --------------------------------- eCore --------------------------------- -->
+
+<script>
+	
+	$("#paypal-checkout").hide()
+	$("#active-code").hide()
+
+	//---------------------------------------------------------------- Dichiarazione Variabili Globali ---------------------------------------------------------------
+	var carrello = [];
+	var id_counter = 0;
+	var totCarrello;
+	//--------------------------------------------------------------- Dichiarazione Variabili Spedizione -------------------------------------------------------------
+	var metodoSpedizione = "";
+	var costoSpedizione = 7.9;
+	//----------------------------------------------------------------- Dichiarazione Variabili Sconto ---------------------------------------------------------------
+	codiceScontoFinale = '';
+	percentuale_sconto = 0;
+	codiceScontoAttivo = false;
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	// carrello = localStorage.length = 0 ? []: localStorage.getItem('1');
+	console.log(localStorage.getItem('1').value)
+	//if (localStorage.length != 0) {
+	//	carrello = localStorage.getItem('1');
+	//}
+
+
+
+
+	//--------------------------------------------------------------------------- PRODOTTI ---------------------------------------------------------------------------
+
+	//--------------------------------------------------------------------------------------- [PRODOTTO] Coprimozzi ST Mkx
+	$("#add-coprim").click(function () {
+		insert_dict = {
+			"color": $("#select-color-coprim option:selected").text(),
+			"text": "Coprimozzo ST",
+			"price": 39.90,
+			"id": id_counter
+		}
+
+		id_counter += 1;
+		carrello.push(insert_dict);
+		localStorage.setItem('1', carrello );
+		console.log(insert_dict);
+	});
+	//--------------------------------------------------------------------------------------- [PRODOTTO] Rialzi Spoiler Mk7
+	$("#add-rialzimk7").click(function () {
+		insert_dict = {
+			"color": $("#select-color-rialzimk7 option:selected").text(),
+			"text": "Rialzi Spoiler Mk7b",
+			"price": 69.90,
+			"id": id_counter
+		}
+
+		id_counter += 1;
+		carrello.push(insert_dict);
+		console.log(insert_dict);
+	});
+	//--------------------------------------------------------------------------------------- [PRODOTTO] Convogliatore Mk7 ST
+	$("#add-convstmk7").click(function () {
+		insert_dict = {
+			"color": $("#select-color-convstmk7 option:selected").text(),
+			"text": "Convogliatore Airbox Mk7b ST",
+			"price": 119.90,
+			"id": id_counter
+		}
+
+		id_counter += 1;
+		carrello.push(insert_dict);
+		console.log(insert_dict);
+	});
+	//--------------------------------------------------------------------------------------- [PRODOTTO] Adattatore Manometro Mk7
+	$("#add-adattamanommk7").click(function () {
+		insert_dict = {
+			"color": "Nero",
+			"text": "Adattatore Manometro Mk7",
+			"price": 14.90,
+			"id": id_counter
+		}
+
+		id_counter += 1;
+		carrello.push(insert_dict);
+		console.log(insert_dict);
+	});
+	//--------------------------------------------------------------------------------------- [PRODOTTO] Coprimozzi ST Mkx
+	$("#add-tappofam").click(function () {
+		insert_dict = {
+			"color": $("#select-color-tappofam option:selected").text(),
+			"text": "Tappo F.A.M.",
+			"price": 19.90,
+			"id": id_counter
+		}
+
+		id_counter += 1;
+		carrello.push(insert_dict);
+		console.log(insert_dict);
+	});
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+	//---------------------------------------------------------------------- [CORE] Codice Sconto --------------------------------------------------------------------
+	$("#sconto-code").keyup(function () {
+		codiceScontoInput = $("#sconto-code").val().toUpperCase();
+
+		switch (codiceScontoInput) {
+			case "BROZFAKEST":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "CICC1":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "ZACCA29":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "BLACKSTL98":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "WHITEY":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "PATRA09":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "SIMONE20":
+				percentuale_sconto = 20;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "REDBANGST":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "SPICOLA10":
+				percentuale_sconto = 10;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			case "FIESTASTDE":
+				percentuale_sconto = 5;
+				codiceScontoFinale = codiceScontoInput;
+				codiceScontoAttivo = true;
+				break;
+			default:
+				percentuale_sconto = 0;
+				codiceScontoAttivo = false;
+				break;
+		}
+
+		DynamicCartText();
+
+	})
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+	
+	//------------------------------------------------------------------ Funzione Metodo Spedizione -----------------------------------------------------------------
+
+	$('#metodo-spedizione').on('change', function() {
+
+		if(this.value == "ups") {
+			costoSpedizione = 16.9;
+
+			SetTotCarrello();
+
+			DynamicCartText();
+		};
+
+		if(this.value == "sda") {
+			costoSpedizione = 7.9;
+
+			SetTotCarrello();
+
+			DynamicCartText();
+		};
+
+	});
+
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//-------------------------------------------------------------------- Funzione SetTotCarrello -------------------------------------------------------------------
+	function SetTotCarrello() {
+		totCarrello = 0;
+
+		carrello.forEach(element => {
+			totCarrello += element.price
+		});
+	}
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//------------------------------------------------------------------ Funzione Dynamic Cart Text -----------------------------------------------------------------
+	function DynamicCartText() {
+
+		$("#totale-parz-container").replaceWith(
+			'<div class="uk-grid-collapse" id="totale-parz-container" uk-grid><div class="uk-width-expand"></div><div style="border-top: 2px solid #fff;">Totale parziale: € <b>'+ totCarrello.toFixed(2) +'</b></div></div>'
+		);
+
+		$("#spese-sped-container").replaceWith(
+			'<div class="uk-grid-collapse" id="spese-sped-container" uk-grid><div class="uk-width-expand">Spese di spedizione</div><div class="uk-width-auto">€ '+ costoSpedizione.toFixed(2) +'</div></div>'
+		);
+
+		$("#totale-container").replaceWith(
+			'<div class="uk-grid-collapse" id="totale-container" uk-grid><div class="uk-width-expand"></div><div style="border-top: 2px solid #fff;">Totale: € <b>'+ (totCarrello + costoSpedizione).toFixed(2) +'</b></div></div>'
+		);
+
+		if(codiceScontoAttivo) { 
+
+			var importoSconto = totCarrello * percentuale_sconto / 100;
+			totScontato = totCarrello - importoSconto;
+			totScontato = Number((totScontato).toFixed(2));
+			costoSpedizione = Number((costoSpedizione).toFixed(2));
+
+			totScontatoPlusSped = totScontato+costoSpedizione;
+
+			$("#totale-parz-container").replaceWith(
+			'<div class="uk-grid-collapse" id="totale-parz-container" uk-grid><div class="uk-width-expand"></div><div style="border-top: 2px solid #fff;">Totale parziale: € <b>'+ totScontato.toFixed(2) +'</b></div></div>'
+			);
+
+			$("#importo-sconto-container").replaceWith(
+			'<div class="uk-grid-collapse" id="importo-sconto-container" uk-grid><div class="uk-width-expand">Importo sconto</div><div class="uk-width-auto" id="impsconto">- € <b>' + importoSconto.toFixed(2) + '</b></div></div>'
+			);
+
+			$('#active-code').replaceWith('<div id="active-code" style="width: 100%; text-align: center;"><p>Codice sconto attivo <b>[-' + percentuale_sconto.toFixed(2) + '%!]</b></p></div>');
+
+			$("#totale-container").replaceWith(
+			'<div class="uk-grid-collapse" id="totale-container" uk-grid><div class="uk-width-expand"></div><div style="border-top: 2px solid #fff;">Totale: € <b>'+ totScontatoPlusSped.toFixed(2) +'</b></div></div>'
+			);
+		}
+
+	}
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//------------------------------------------------------------------- Alert AGGIUNTO AL CARRELLO ------------------------------------------------------------------
+	$(".shop-btn").click(function () { alert("Aggiunto al carrello!") });
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//----------------------------------------------------------------- Funzione Click Modal Carrello -----------------------------------------------------------------
+	$("#carrello-a").click(function () {
+
+		$.each(carrello, function (index, value) {
+			$("#carrello-items").append(
+				'<div id="' + value.id + '" class="uk-grid-collapse" uk-grid><div class="uk-width-auto" style="padding-right: 10px;"><a class="close" id="delProd" style="color: red;">X</a></div><div class="uk-width-expand">' + value.text + '<b>[' + value.color + ']</b></div><div class="uk-width-auto">€ ' + value.price + '</div></div>'
+			);
+		})
+
+		SetTotCarrello();
+
+		DynamicCartText();
+
+	})
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
+	//----------------------------------------------------------------- Funzione Rimuovi Dal Carrello -----------------------------------------------------------------
+	$(document).on("click", "a.close", function () {
+
+		var idProdotto = $(this).parent().parent().attr('id')
+		var delete_index;
+
+		$.each(carrello, function (index, value) { 
+			if (value.id == idProdotto) { 
+				delete_index = index; 
+			} 
+		})
+
+		carrello.splice(delete_index, 1);
+
+		SetTotCarrello();
+
+		DynamicCartText();
+
+		$(this).parent().parent().remove();
+
+	});
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//--------------------------------------------------------------------- Check if Modal is Open  -------------------------------------------------------------------
+	$('#modal-carrello').on({
+		'show.uk.modal': function () {
+		},
+		'hide.uk.modal': function () {
+			$("#carrello-items").empty();
+		}
+	});
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//------------------------------------------------------------------------ Form Validation  -----------------------------------------------------------------------
+	$.validator.addMethod('customphone', function (value, element) {
+		return this.optional(element) || /^\d{10}$/.test(value);
+	}, "Inserisci un numero di telefono valido");
+
+
+	$('#selectForm').validate({
+		rules: {
+			nome: {
+				required: true,
+			},
+			cognome: {
+				required: true
+			},
+			fiscale: {
+				required: true
+			},
+			email: {
+				required: true,
+				email: true
+			},
+			phone: {
+				required: true,
+				number: true,
+				customphone: true
+			},
+			address: {
+				required: true
+			},
+			cap: {
+				required: true,
+			},
+			city: {
+				required: true
+			},
+			maincity: {
+				required: true
+			}
+		}
+	});
+
+
+	$('#selectForm input').on('keyup blur', function () {
+		if ($('#selectForm').validate().checkForm()) {
+			$("#paypal-inform").hide();
+			$("#paypal-checkout").show();
+		} else {
+			$("#paypal-inform").show();
+			$("#paypal-checkout").hide();
+		}
+	});
+	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+	//-------------------------------------------------------------------------- PayPal API  -------------------------------------------------------------------------
+	paypal.Buttons({
+		createOrder: function (data, actions) {
+
+			SetTotCarrello();
+
+			final_total = 0;
+
+			totCarrello.toFixed(2);
+			costoSpedizione.toFixed(2);
+			percentuale_sconto.toFixed(2);
+
+			if (codiceScontoAttivo) {
+				importoSconto = totCarrello * percentuale_sconto / 100
+				final_total = totCarrello - importoSconto
+				final_total = final_total+costoSpedizione;
+				final_total = Number((final_total).toFixed(2));
+				final_total = final_total.toString()
+			} else {
+				final_total = totCarrello+costoSpedizione;
+				final_total = Number((final_total).toFixed(2));
+				final_total = final_total.toString();
+			}
+
+			console.log("final_total: " + final_total)
+
+			// This function sets up the details of the transaction, including the amount and line item details.
+			return actions.order.create({
+				purchase_units: [{
+					amount: {
+						value: final_total
+					}
+				}]
+			});
+
+		},
+		onApprove: function (data, actions) {
+			// This function captures the funds from the transaction.
+			return actions.order.capture().then(function (details) {
+				// This function shows a transaction success message to your buyer.
+
+				var nome = $('#selectForm').find('input[name="nome"]').val();
+				var cognome = $('#selectForm').find('input[name="cognome"]').val();
+				var fiscale = $('#selectForm').find('input[name="fiscale"]').val();
+				var phone = $('#selectForm').find('input[name="phone"]').val();
+				var email = $('#selectForm').find('input[name="email"]').val();
+				var address = $('#selectForm').find('input[name="address"]').val();
+				var cap = $('#selectForm').find('input[name="cap"]').val();
+				var city = $('#selectForm').find('input[name="city"]').val();
+				var maincity = $('#selectForm').find('input[name="maincity"]').val();
+				var plus = $('#selectForm').find('input[name="plus"]').val();
+
+				var order_details = ""
+				var totalMail = 0
+
+				$.each(carrello, function (index, value) {
+					totalMail += value.price
+					var HTMLmsg = value.text + ' <b>[' + value.color + ']</b> € ' + value.price + '<br>'
+					order_details = order_details + HTMLmsg
+				})
+
+				if (codiceScontoAttivo) {
+					importo_scontoMail = totalMail * percentuale_sconto / 100
+					final_totalMail = totalMail - importo_scontoMail
+					final_totalMail = Number((final_totalMail).toFixed(2));
+
+					order_details += '<b>Totale parziale scontato del ' + percentuale_sconto + ' %  con il codice ' + codiceScontoFinale + ' </b>: € ' + (final_totalMail).toFixed(2) + ' <br> Spese di spedizione: € ' + costoSpedizione + ' <br> <b>Totale</b>: € ' + (final_totalMail+costoSpedizione).toFixed(2) + ' '
+				} else {
+					totalMail = Number((totalMail).toFixed(2));
+					order_details += "Spese di spedizione: € " + costoSpedizione + "<br><b>Totale</b>: € " + (totalMail+costoSpedizione).toFixed(2)
+				}
+
+
+
+				// AJAX 
+				var data = {
+					nome: nome,
+					cognome: cognome,
+					fiscale: fiscale,
+					phone: phone,
+					email: email,
+					address: address,
+					cap: cap,
+					city: city,
+					maincity: maincity,
+					plus: plus,
+					order_details: order_details,
+				};
+				$.ajax({
+					type: "POST",
+					url: "email.php",
+					data: data,
+					success: function(){
+						$('.success').fadeIn(1000);
+						console.log( "OK!" );
+					}
+				});
+				console.log( "ready!" );
+
+				alert('Transazione completata da ' + cognome );
+
+			});
+		}
+	}).render('#paypal-checkout');
+
+</script>
+
+</body>
+</html>

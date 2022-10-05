@@ -1,0 +1,25 @@
+/* ######## SemplicementeSito S.r.l.s ######### */
+/* ############# MotoCenter S.r.l ############# */
+/* ######### Loading Custom Component  ######## */
+
+/* ---- ---- ---- ---- ---- ---- ---- ScrollBar */
+::-webkit-scrollbar{
+	width:10px
+}
+::-webkit-scrollbar-track{
+background:white;
+-webkit-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.1)
+}
+::-webkit-scrollbar-thumb{
+background:#BE1522;
+opacity:0.5;
+-webkit-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover{
+opacity:0.8
+}
+::-webkit-scrollbar-thumb:active{
+background:#BE1522;
+opacity:1;
+-webkit-box-shadow:inset 1px 1px 2px rgba(0,0,0,0.3)
+}
