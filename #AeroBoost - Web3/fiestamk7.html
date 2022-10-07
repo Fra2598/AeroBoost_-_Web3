@@ -536,31 +536,75 @@
 	codiceScontoFinale = '';
 	percentuale_sconto = 0;
 	codiceScontoAttivo = false;
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "";
+		if (exdays > 0)
+			expires = "expires=" + d.toUTCString();
+		document.cookie = cname + "=" + cvalue + "; " + expires + "; secure";
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+
+			var c = ca[i];
+
+			while (c.charAt(0) == ' '){
+				c = c.substring(1);
+			}
+
+			if (c.indexOf(name) == 0){
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+	
+	if (getCookie("c1") != ""){
+		carrello.push(RegexGetProduct(getCookie("c1")));
+	}
+
+	function RegexGetProduct(cookieString) {
+
+		color = cookieString.match("(?<=\§)(.*?)(?=\§)");
+		text = cookieString.match("(?<=\@)(.*?)(?=\@)");
+		price = cookieString.match("(?<=\#)(.*?)(?=\#)");
+		id = cookieString.match("(?<=\£)(.*?)(?=\£)");
+
+		return {
+			"color": color,
+			"text": text,
+			"price": price,
+			"id": id
+		}
+		
+	}
+
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
-	// carrello = localStorage.length = 0 ? []: localStorage.getItem('1');
-	console.log(localStorage.getItem('1').value)
-	//if (localStorage.length != 0) {
-	//	carrello = localStorage.getItem('1');
-	//}
-
-
-
-
+	
 	//--------------------------------------------------------------------------- PRODOTTI ---------------------------------------------------------------------------
 
 	//--------------------------------------------------------------------------------------- [PRODOTTO] Coprimozzi ST Mkx
 	$("#add-coprim").click(function () {
+		color = $("#select-color-coprim option:selected").text();
+		text = "Coprimozzo ST"
+		price = 39.90
+		id = id_counter
 		insert_dict = {
-			"color": $("#select-color-coprim option:selected").text(),
-			"text": "Coprimozzo ST",
-			"price": 39.90,
-			"id": id_counter
+			"color": color,
+			"text": text,
+			"price": price,
+			"id": id
 		}
 
 		id_counter += 1;
 		carrello.push(insert_dict);
-		localStorage.setItem('1', carrello );
-		console.log(insert_dict);
+		setCookie("c1", "§" + color + "§" + "@" + text + "@" + "#" + price + "#" + "£" + id + "£", 1)
+		// console.log(insert_dict);
 	});
 	//--------------------------------------------------------------------------------------- [PRODOTTO] Rialzi Spoiler Mk7
 	$("#add-rialzimk7").click(function () {
