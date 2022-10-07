@@ -537,6 +537,8 @@
 	percentuale_sconto = 0;
 	codiceScontoAttivo = false;
 
+	$(document).ready(function () { checkCookie(); });
+
 	function setCookie(cname, cvalue, exdays) {
 		var d = new Date();
 		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -563,9 +565,18 @@
 		}
 		return "";
 	}
+
+	function checkCookie() {
+		var user = getCookie("c2");
+		if (user == "") {
+			$('#cookieChoiceInfo').fadeIn();
+		}
+	}
 	
-	if (getCookie("c1") != ""){
-		carrello.push(RegexGetProduct(getCookie("c1")));
+	if (getCookie("c2") != ""){
+		carrello.push(RegexGetProduct(getCookie("c2")));
+
+		console.log(getCookie("c2"));
 	}
 
 	function RegexGetProduct(cookieString) {
@@ -603,7 +614,7 @@
 
 		id_counter += 1;
 		carrello.push(insert_dict);
-		setCookie("c1", "§" + color + "§" + "@" + text + "@" + "#" + price + "#" + "£" + id + "£", 1)
+		setCookie("c2", "§" + color + "§" + "@" + text + "@" + "#" + price + "#" + "£" + id + "£", 1)
 		// console.log(insert_dict);
 	});
 	//--------------------------------------------------------------------------------------- [PRODOTTO] Rialzi Spoiler Mk7
