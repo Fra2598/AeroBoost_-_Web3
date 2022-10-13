@@ -545,6 +545,7 @@
 		var expires = "";
 		if (exdays > 0)
 			expires = "expires=" + d.toUTCString();
+
 		document.cookie = cname + "=" + cvalue + "; " + expires + "; secure";
 	}
 
@@ -572,12 +573,6 @@
 			$('#cookieChoiceInfo').fadeIn();
 		}
 	}
-	
-	if (getCookie("c2") != ""){
-		carrello.push(RegexGetProduct(getCookie("c2")));
-
-		console.log(getCookie("c2"));
-	}
 
 	function RegexGetProduct(cookieString) {
 
@@ -592,8 +587,22 @@
 			"price": price,
 			"id": id
 		}
-		
 	}
+
+	function DoRefreshCart() {
+		if (getCookie('c1') != ""){
+			item = RegexGetProduct(getCookie('c1'));
+			carrello.push({
+				"color": item.color[0],
+				"text": item.text[0],
+				"price": item.price[0],
+				"id": item.id[0]
+			});
+		}
+	}
+
+	DoRefreshCart();
+	DynamicCartText()
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	
@@ -613,8 +622,11 @@
 		}
 
 		id_counter += 1;
-		carrello.push(insert_dict);
-		setCookie("c2", "§" + color + "§" + "@" + text + "@" + "#" + price + "#" + "£" + id + "£", 1)
+
+		setCookie("c1", "§" + color + "§" + "@" + text + "@" + "#" + price + "#" + "£" + id + "£", 1)
+
+		DoRefreshCart();
+		
 		// console.log(insert_dict);
 	});
 	//--------------------------------------------------------------------------------------- [PRODOTTO] Rialzi Spoiler Mk7
